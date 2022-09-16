@@ -120,9 +120,16 @@ controller.login = async (req, res) => {
             let senhaOk = await bcrypt.compare(req.body.senha, usuario.hash_senha)
 
             if(senhaOk) {
+                console.log({usuario})
                 // Gera e retorna o token
                 const token = jwt.sign(
-                    { id: usuario.id} , 
+                    {
+                        id: usuario.id,
+                        nome: usuario.nome,
+                        email: usuario.email,
+                        admin: usuario.admin,
+                        data_nasc: usuario.data_nasc
+                    }, 
                     process.env.TOKEN_SECRET,
                     { expiresIn: '8h' } 
                 )
