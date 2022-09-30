@@ -37,7 +37,13 @@ controller.create = async(req, res) => {
         // Se o usuário logado não for admin, o valor do campo
         // admin do usuário que está sendo criado não pode ser
         // true
-        if(! req.infoLogado.admin) req.body.admin = false
+        if(req.infoLogado) {
+            if(! req.infoLogado.admin) req.body.admin = false
+        }
+        // Se não tiver o campo infoLogado no req, significa que
+        // o acesso foi feito sem token. Nesse caso, também não
+        // podemos criar um usuário admin
+        else req.body.admin = false
 
         await Usuario.create(req.body)
         // HTTP 201: Created
