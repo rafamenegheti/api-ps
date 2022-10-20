@@ -1,7 +1,4 @@
-const { Curso, Turma } = require('../models')
-
-// Importar models relacionados
-const Curso = require('../models/curso')
+const { Turma, Curso, Professor } = require('../models')
 
 const controller = {}       // Objeto vazio
 
@@ -30,7 +27,10 @@ controller.create = async(req, res) => {
 controller.retrieve = async (req, res) => {
     try {
         const result = await Turma.findAll({
-            include: { model: Curso }
+            include: [
+                { model: Curso, as: 'curso' },
+                { model: Professor, as: 'professor' }
+            ]
         })
         // HTTP 200: OK (implícito)
         res.send(result)

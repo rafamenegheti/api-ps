@@ -27,7 +27,7 @@ controller.create = async(req, res) => {
 controller.retrieve = async (req, res) => {
     try {
         const result = await Curso.findAll({
-            include: {model: Turma}
+            include: { model: Turma, as: 'turmas' }
         })
         // HTTP 200: OK (implícito)
         res.send(result)
