@@ -1,4 +1,4 @@
-const { Turma, Curso, Professor } = require('../models')
+const { Turma, Curso, Professor, Aluno } = require('../models')
 
 const controller = {}       // Objeto vazio
 
@@ -29,7 +29,8 @@ controller.retrieve = async (req, res) => {
         const result = await Turma.findAll({
             include: [
                 { model: Curso, as: 'curso' },
-                { model: Professor, as: 'professor' }
+                { model: Professor, as: 'professor' },
+                { model: Aluno, as: 'alunos' }
             ]
         })
         // HTTP 200: OK (implícito)

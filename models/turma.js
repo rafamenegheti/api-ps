@@ -22,6 +22,13 @@ module.exports = (sequelize, DataTypes) => {
         targetKey: 'id',
         as: 'professor'
       })
+
+      this.hasMany(models.Aluno, {
+        foreignKey: 'turma_id',
+        targetKey: 'id',
+        as: 'alunos'
+      })
+
     }
   }
   Turma.init({
