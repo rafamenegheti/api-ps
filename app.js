@@ -24,7 +24,8 @@ var app = express();
 
 const cors = require('cors')
 app.use(cors({
-    origin: 'https://agoravai-fausto2.onrender.com'
+    origin: 'https://agoravai-fausto2.onrender.com',
+    credentials: true
 }))
 
 app.use(logger('dev'));
