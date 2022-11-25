@@ -217,6 +217,7 @@ controller.login = async (req, res) => {
                         secure: true,
                         sameSite: 'none'
                     }).status(200).json({auth: true})
+                console.log({'res.cookie': res.cookie})
             }
             else {  // Senha inválida
                 // HTTP 401: Unauthorized
