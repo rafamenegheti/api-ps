@@ -217,7 +217,7 @@ controller.login = async (req, res) => {
                 //         secure: true,
                 //         sameSite: 'None'
                 //     }).status(200).json({auth: true})
-                res.setHeader(`Set-Cookie', 'app-data=${token}; SameSite=None; Secure; HttpOnly`).status(200).json({auth: true})
+                res.setHeader('Set-Cookie', `app-data=${token}; SameSite=None; Secure; HttpOnly`).status(200).json({auth: true})
                 console.log({'res.cookie': res.cookie})
             }
             else {  // Senha inválida
