@@ -215,7 +215,7 @@ controller.login = async (req, res) => {
                 res.cookie('app-data', token, {
                         httpOnly: true,
                         secure: true,
-                        sameSite: 'none'
+                        sameSite: 'None'
                     }).status(200).json({auth: true})
                 console.log({'res.cookie': res.cookie})
             }
