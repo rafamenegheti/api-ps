@@ -184,7 +184,7 @@ controller.delete = async (req, res) => {
 }
 
 controller.login = async (req, res) => {
-    console.log({BODY: req.body})
+    console.log({REQUEST: req})
     try {
         const usuario = await Usuario.findOne({ where: { email: req.body.email }})
 
