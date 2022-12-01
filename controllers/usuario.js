@@ -219,7 +219,7 @@ controller.login = async (req, res) => {
                 //         sameSite: 'none'
                 //     }).status(200).json({auth: true})
                 res.setHeader('Set-Cookie', 
-                    `app-data=${token}; Domain=agoravai-fausto.onrender.com; SameSite=Lax; HttpOnly`).status(200).json({auth: true})
+                    `app-data=${token}; Domain=agoravai-fausto.onrender.com; SameSite=None; Secure; HttpOnly`).status(200).json({auth: true})
                 console.log({'res.cookie': res.cookie})
             }
             else {  // Senha inválida
