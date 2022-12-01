@@ -184,7 +184,7 @@ controller.delete = async (req, res) => {
 }
 
 controller.login = async (req, res) => {
-    console.log({REQUEST: req})
+    
     try {
         const usuario = await Usuario.findOne({ where: { email: req.body.email }})
 
@@ -216,7 +216,7 @@ controller.login = async (req, res) => {
                 res.cookie('app-data', token, {
                         httpOnly: true,
                         // secure: true,
-                        sameSite: 'None'
+                        sameSite: 'none'
                     }).status(200).json({auth: true})
                 // res.setHeader('Set-Cookie', `app-data=${token}; Domain=agoravai-fausto.onrender.com; SameSite=None; Secure; HttpOnly`).status(200).json({auth: true})
                 console.log({'res.cookie': res.cookie})
