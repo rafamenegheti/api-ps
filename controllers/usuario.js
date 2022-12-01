@@ -213,12 +213,12 @@ controller.login = async (req, res) => {
                 //res.json({ auth: true, token })
 
                 // Token retornando em um cookie seguro (HTTP only)
-                // res.cookie('app-data', token, {
-                //         httpOnly: true,
-                //         secure: true,
-                //         sameSite: 'None'
-                //     }).status(200).json({auth: true})
-                res.setHeader('Set-Cookie', `app-data=${token}; Domain=agoravai-fausto.onrender.com; SameSite=None; Secure; HttpOnly`).status(200).json({auth: true})
+                res.cookie('app-data', token, {
+                        httpOnly: true,
+                        // secure: true,
+                        sameSite: 'None'
+                    }).status(200).json({auth: true})
+                // res.setHeader('Set-Cookie', `app-data=${token}; Domain=agoravai-fausto.onrender.com; SameSite=None; Secure; HttpOnly`).status(200).json({auth: true})
                 console.log({'res.cookie': res.cookie})
             }
             else {  // Senha inválida
