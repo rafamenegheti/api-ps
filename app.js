@@ -24,7 +24,8 @@ var app = express();
 
 const cors = require('cors')
 app.use(cors({
-    origin: true,
+    origin: 'http://localhost:3001',
+    // origin: true,
     credentials: true
 }))
 
